@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "wx.miniapp.configs",
+      "type": "java.lang.String",
+      "description": "Description for wx.miniapp.configs."
+  }
+] }

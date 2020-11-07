@@ -1,0 +1,72 @@
+server:
+  port: 8993
+  servlet:
+    context-path: /core-app
+spring:
+  application:
+    name: core-app
+  profiles:
+    active: dev #默认为开发环境
+  servlet:
+    multipart:
+      enabled: true #开启文件上传
+      max-file-size: 10MB #限制文件上传大小为10M
+
+mybatis:
+  mapper-locations:
+    - classpath*:dao/*.xml
+    - classpath*:com/**/mapper/*.xml
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: paradise-app-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: 'Bearer '  #JWT负载中拿到开头
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /**/swagger-ui.html
+      - /**/doc.html
+      - /**/swagger-resources/**
+      - /**/swagger/**
+      - /**/v2/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /**/webjars/springfox-swagger-ui/**
+      - /**/druid/**
+      - /**/actuator/**
+      - /**/sso/**
+      - /**/home/**
+      - /**/product/**
+      - /**/brand/**
+      - /**/oss/**
+
+# 自定义redis key
+redis:
+  database: paradise
+  key:
+    authCode: 'ums:authCode'
+    orderId: 'oms:orderId'
+    member: 'ums:member'
+  expire:
+    authCode: 90 # 验证码超期时间
+    common: 86400 # 24小时
+
+wx:
+  miniapp:
+    configs:
+      - appid: #微信小程序的appid
+        secret: #微信小程序的Secret
+        token: #微信小程序消息服务器配置的token
+        aesKey: #微信小程序消息服务器配置的EncodingAESKey
+        msgDataFormat: JSON
+
+minio:
+  endpoint: http://192.168.199.37:8008 #MinIO服务所在地址
+  bucketName: yxx-oss #存储桶名称
+  accessKey: L18S3MC4V2B6W8ZLLP9Y #访问的key
+  secretKey: Y+nkVyUgRG9RiiYOJARe7aBS0ighgfZnxbaaHGJN #访问的秘钥
+  openUrl: https://yxx.gaoshan.co:8003
