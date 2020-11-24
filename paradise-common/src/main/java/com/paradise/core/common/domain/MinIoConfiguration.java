@@ -1,15 +1,14 @@
 package com.paradise.core.common.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author Paradise
  */
-@Data
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ConfigurationProperties(prefix = "minio")
 public class MinIoConfiguration {
 
     private String endpoint;

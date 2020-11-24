@@ -5,9 +5,9 @@ import com.paradise.core.security.component.DynamicSecurityService;
 import com.paradise.core.security.config.BaseSecurityConfig;
 import com.paradise.core.service.UmsAdminService;
 import com.paradise.core.service.UmsResourceService;
-import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -27,11 +27,16 @@ import java.util.concurrent.ConcurrentHashMap;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@AllArgsConstructor
 public class AdminBaseSecurityConfig extends BaseSecurityConfig {
 
     private final UmsAdminService adminService;
     private final UmsResourceService resourceService;
+
+    public AdminBaseSecurityConfig(@Lazy UmsAdminService adminService,
+                                   @Lazy UmsResourceService resourceService) {
+        this.adminService = adminService;
+        this.resourceService = resourceService;
+    }
 
     @Override
     @Bean

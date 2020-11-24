@@ -1,4 +1,4 @@
-package com.paradise.core;
+package com.paradise.core.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
