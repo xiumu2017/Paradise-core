@@ -6,8 +6,12 @@ import com.paradise.core.common.api.Result;
 import com.paradise.core.common.domain.BucketPolicyConfigDto;
 import com.paradise.core.common.domain.MinIoConfiguration;
 import com.paradise.core.common.domain.MinioUploadDto;
+import com.paradise.core.common.utils.DateUtil;
+import com.paradise.core.common.utils.GeneratorUtil;
 import io.minio.*;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,9 +23,13 @@ import java.util.Date;
  */
 @Slf4j
 @Component
+@AllArgsConstructor
+@EnableConfigurationProperties(MinIoConfiguration.class)
 public class MinIoService {
 
-    public Result upload(MultipartFile file, MinIoConfiguration minIoConfiguration) {
+    private final MinIoConfiguration minIoConfiguration;
+
+    public com.paradise.core.common.api.Result<MinioUploadDto> upload(MultipartFile file) {
         try {
             //创建一个MinIO的Java客户端
             MinioClient minioClient = MinioClient.builder()
@@ -29,9 +37,7 @@ public class MinIoService {
                     .credentials(minIoConfiguration.getAccessKey(), minIoConfiguration.getSecretKey())
                     .build();
             boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(minIoConfiguration.getBucketName()).build());
-            if (isExist) {
-                log.info("存储桶已经存在！");
-            } else {
+            if (!isExist) {
                 //创建存储桶并设置只读权限
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(minIoConfiguration.getBucketName()).build());
                 BucketPolicyConfigDto bucketPolicyConfigDto = createBucketPolicyConfigDto(minIoConfiguration.getBucketName());
@@ -41,7 +47,7 @@ public class MinIoService {
                         .build();
                 minioClient.setBucketPolicy(setBucketPolicyArgs);
             }
-            String filename = file.getOriginalFilename();
+            String filename = fileNamePrefix() + file.getOriginalFilename();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             // 设置存储对象名称
             String objectName = sdf.format(new Date()) + "/" + filename;
@@ -52,16 +58,20 @@ public class MinIoService {
                     .contentType(file.getContentType())
                     .stream(file.getInputStream(), file.getSize(), ObjectWriteArgs.MIN_MULTIPART_SIZE).build();
             minioClient.putObject(putObjectArgs);
-            log.info("文件上传成功!");
             MinioUploadDto minioUploadDto = new MinioUploadDto();
             minioUploadDto.setName(filename);
             minioUploadDto.setUrl(minIoConfiguration.getOpenUrl() + "/" + minIoConfiguration.getBucketName() + "/" + objectName);
+            log.info("文件上传成功:{}", minioUploadDto.getUrl());
             return Result.success(minioUploadDto);
         } catch (Exception e) {
             e.printStackTrace();
             log.info("上传发生错误: {}！", e.getMessage());
         }
         return Result.failed();
+    }
+
+    private String fileNamePrefix() {
+        return DateUtil.defaultDateFormat() + GeneratorUtil.getNonceString(2);
     }
 
     private BucketPolicyConfigDto createBucketPolicyConfigDto(String bucketName) {
@@ -76,13 +86,13 @@ public class MinIoService {
                 .build();
     }
 
-    public Result delete(String objectName, MinIoConfiguration configuration) {
+    public Result<Object> delete(String objectName) {
         try {
             MinioClient minioClient = MinioClient.builder()
-                    .endpoint(configuration.getEndpoint())
-                    .credentials(configuration.getAccessKey(), configuration.getSecretKey())
+                    .endpoint(minIoConfiguration.getEndpoint())
+                    .credentials(minIoConfiguration.getAccessKey(), minIoConfiguration.getSecretKey())
                     .build();
-            minioClient.removeObject(RemoveObjectArgs.builder().bucket(configuration.getBucketName()).object(objectName).build());
+            minioClient.removeObject(RemoveObjectArgs.builder().bucket(minIoConfiguration.getBucketName()).object(objectName).build());
             return Result.success(null);
         } catch (Exception e) {
             e.printStackTrace();

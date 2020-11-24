@@ -43,7 +43,7 @@
         <!-- 自定义注释插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.CommentPlugin">
             <!-- 自定义模板路径 -->
-            <property name="template" value="..\source_code\mall-mbg\src\main\resources\comment.ftl"/>
+            <property name="template" value=".\paradise-mbg\src\main\resources\comment.ftl"/>
         </plugin>
         <!-- 查询结果选择性返回插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>
@@ -77,16 +77,25 @@
             <property name="supportSuperBuilderForIdea" value="false"/>
         </plugin>
         <!-- 自动为entity生成swagger2文档-->
-        <plugin type="com.paradise.core.GeneratorSwagger2Doc">
+        <plugin type="com.paradise.core.plugins.GeneratorSwagger2Doc">
             <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
             <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
+        </plugin>
+        <!-- ControllerServicePlugin -->
+        <plugin type="com.paradise.core.plugins.ControllerServicePlugin">
+            <!-- 是否生成 Controller 与 Service 类 -->
+            <property name="generate.controller.service" value="true"/>
+            <property name="targetProject" value=".\paradise-admin\src\main\java"/>
+            <property name="service.package" value="com.paradise.core.service"/>
+            <!-- Controller 的包路径 -->
+            <property name="web.package" value="com.paradise.core.controller"/>
         </plugin>
         <!-- Example 目标包修改插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
             <!-- 修改Example类生成到目标包下 -->
             <property name="targetPackage" value="com.paradise.core.example"/>
         </plugin>
-        <commentGenerator type="com.paradise.core.CommentGenerator">
+        <commentGenerator type="com.paradise.core.plugins.CommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
@@ -101,20 +110,17 @@
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.paradise.core.model" targetProject="..\source_code\paradise-mbg\src\main\java"/>
+        <javaModelGenerator targetPackage="com.paradise.core.model" targetProject=".\paradise-mbg\src\main\java"/>
 
-        <sqlMapGenerator targetPackage="com.paradise.core.mapper" targetProject="..\source_code\paradise-mbg\src\main\resources"/>
+        <sqlMapGenerator targetPackage="com.paradise.core.mapper" targetProject=".\paradise-mbg\src\main\resources"/>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.paradise.core.mapper"
-                             targetProject="..\source_code\paradise-mbg\src\main\java"/>
+                             targetProject=".\paradise-mbg\src\main\java"/>
         <!--生成全部表tableName设为%-->
         <!-- pms_product_category yxx_order yxx_product_comment yxx_product_comment_label-->
         <!-- pms_product yxx_order_status_record yxx_order_item yxx_region yxx_worker -->
         <!--        yxx_worker_order_count -->
-        <table tableName="t_%">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="ums_%">
+        <table tableName="t_account_pass">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

@@ -23,7 +23,6 @@ import com.paradise.core.service.UmsAdminService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -54,17 +53,16 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class UmsAdminServiceImpl implements UmsAdminService {
-    @Lazy
-    private JwtTokenUtil jwtTokenUtil;
-    @Lazy
-    private PasswordEncoder passwordEncoder;
-    private UmsAdminMapper adminMapper;
-    private UmsAdminRoleRelationMapper adminRoleRelationMapper;
-    private UmsAdminRoleRelationDao adminRoleRelationDao;
-    private UmsAdminPermissionRelationMapper adminPermissionRelationMapper;
-    private UmsAdminPermissionRelationDao adminPermissionRelationDao;
-    private UmsAdminLoginLogMapper loginLogMapper;
-    private UmsAdminCacheService adminCacheService;
+
+    private final JwtTokenUtil jwtTokenUtil;
+    private final PasswordEncoder passwordEncoder;
+    private final UmsAdminMapper adminMapper;
+    private final UmsAdminRoleRelationMapper adminRoleRelationMapper;
+    private final UmsAdminRoleRelationDao adminRoleRelationDao;
+    private final UmsAdminPermissionRelationMapper adminPermissionRelationMapper;
+    private final UmsAdminPermissionRelationDao adminPermissionRelationDao;
+    private final UmsAdminLoginLogMapper loginLogMapper;
+    private final UmsAdminCacheService adminCacheService;
 
     @Override
     public UmsAdmin getCurrentAdmin() {

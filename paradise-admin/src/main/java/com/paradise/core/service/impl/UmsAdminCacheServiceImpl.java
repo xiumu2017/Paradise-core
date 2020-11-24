@@ -11,6 +11,7 @@ import com.paradise.core.model.UmsResource;
 import com.paradise.core.service.UmsAdminCacheService;
 import com.paradise.core.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     @Value("${redis.key.resourceList}")
     private String REDIS_KEY_RESOURCE_LIST;
 
-    public UmsAdminCacheServiceImpl(UmsAdminService adminService, RedisService redisService,
+    public UmsAdminCacheServiceImpl(@Lazy UmsAdminService adminService, RedisService redisService,
                                     UmsAdminRoleRelationMapper adminRoleRelationMapper,
                                     UmsAdminRoleRelationDao adminRoleRelationDao) {
         this.adminService = adminService;

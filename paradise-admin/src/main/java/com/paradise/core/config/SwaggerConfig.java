@@ -18,7 +18,7 @@ public class SwaggerConfig extends BaseSwaggerConfig {
     @Override
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()
-                .apiBasePackage("com.paradise.mall.controller")
+                .apiBasePackage("com.paradise.core.controller")
                 .title("Paradise-Core 后台管理")
                 .description("Paradise-Core 相关接口文档")
                 .contactName("Paradise")

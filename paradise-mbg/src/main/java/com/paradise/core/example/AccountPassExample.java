@@ -1898,6 +1898,6 @@ public class AccountPassExample {
     }
 
     public interface IExampleWhen {
-        void example(AccountPassExample example);
+        void example(com.paradise.core.example.AccountPassExample example);
     }
 }
