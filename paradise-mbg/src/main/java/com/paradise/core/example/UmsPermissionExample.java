@@ -1218,6 +1218,6 @@ public class UmsPermissionExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsPermissionExample example);
+        void example(com.paradise.core.example.UmsPermissionExample example);
     }
 }

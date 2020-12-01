@@ -25,6 +25,3 @@ logging:
   level:
     root: info
     com.macro.mall: info
-
-logstash:
-  host: logstash

@@ -1238,6 +1238,6 @@ public class UmsAdminExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsAdminExample example);
+        void example(com.paradise.core.example.UmsAdminExample example);
     }
 }

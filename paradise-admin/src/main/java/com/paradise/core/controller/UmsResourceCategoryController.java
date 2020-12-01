@@ -19,7 +19,7 @@ import java.util.List;
  */
 @ApiIgnore
 @Controller
-@Api(tags = "后台资源分类管理")
+@Api(tags = "后台资源分类管理", hidden = true)
 @RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
     private final UmsResourceCategoryService resourceCategoryService;

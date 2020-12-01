@@ -22,7 +22,7 @@ import java.util.List;
  */
 @ApiIgnore
 @Controller
-@Api(tags = "后台资源管理")
+@Api(tags = "后台资源管理",hidden = true)
 @RequestMapping("/resource")
 @AllArgsConstructor
 public class UmsResourceController {

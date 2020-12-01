@@ -3,7 +3,6 @@ package com.paradise.core.mapper;
 import com.paradise.core.example.UmsAdminLoginLogExample;
 import com.paradise.core.model.UmsAdminLoginLog;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsAdminLoginLogMapper {

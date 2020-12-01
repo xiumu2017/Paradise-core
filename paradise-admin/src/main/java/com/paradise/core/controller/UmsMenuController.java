@@ -19,7 +19,7 @@ import java.util.List;
  * @date 2020/2/4
  */
 @Controller
-@Api(tags = "8.6 后台菜单管理")
+@Api(tags = "2. 后台菜单管理")
 @RequestMapping("/menu")
 public class UmsMenuController {
 
@@ -30,9 +30,8 @@ public class UmsMenuController {
     }
 
     @ApiOperation("添加后台菜单")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    @ResponseBody
-    public Result create(@RequestBody UmsMenu umsMenu) {
+    @PostMapping(value = "/create")
+    public Result<Integer> create(@RequestBody UmsMenu umsMenu) {
         int count = menuService.create(umsMenu);
         if (count > 0) {
             return Result.success(count);
@@ -42,9 +41,8 @@ public class UmsMenuController {
     }
 
     @ApiOperation("修改后台菜单")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    @ResponseBody
-    public Result update(@PathVariable Long id,
+    @PostMapping(value = "/update/{id}")
+    public Result<Integer> update(@PathVariable Long id,
                          @RequestBody UmsMenu umsMenu) {
         int count = menuService.update(id, umsMenu);
         if (count > 0) {
@@ -55,17 +53,15 @@ public class UmsMenuController {
     }
 
     @ApiOperation("根据ID获取菜单详情")
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/{id}")
     public Result<UmsMenu> getItem(@PathVariable Long id) {
         UmsMenu umsMenu = menuService.getItem(id);
         return Result.success(umsMenu);
     }
 
     @ApiOperation("根据ID删除后台菜单")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    @ResponseBody
-    public Result delete(@PathVariable Long id) {
+    @PostMapping(value = "/delete/{id}")
+    public Result<Integer> delete(@PathVariable Long id) {
         int count = menuService.delete(id);
         if (count > 0) {
             return Result.success(count);
@@ -75,8 +71,7 @@ public class UmsMenuController {
     }
 
     @ApiOperation("分页查询后台菜单")
-    @RequestMapping(value = "/list/{parentId}", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/list/{parentId}")
     public Result<CommonPage<UmsMenu>> list(@PathVariable Long parentId,
                                             @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                             @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
@@ -85,17 +80,15 @@ public class UmsMenuController {
     }
 
     @ApiOperation("树形结构返回所有菜单列表")
-    @RequestMapping(value = "/treeList", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/treeList")
     public Result<List<UmsMenuNode>> treeList() {
         List<UmsMenuNode> list = menuService.treeList();
         return Result.success(list);
     }
 
     @ApiOperation("修改菜单显示状态")
-    @RequestMapping(value = "/updateHidden/{id}", method = RequestMethod.POST)
-    @ResponseBody
-    public Result updateHidden(@PathVariable Long id, @RequestParam("hidden") Integer hidden) {
+    @PostMapping(value = "/updateHidden/{id}")
+    public Result<Integer> updateHidden(@PathVariable Long id, @RequestParam("hidden") Integer hidden) {
         int count = menuService.updateHidden(id, hidden);
         if (count > 0) {
             return Result.success(count);

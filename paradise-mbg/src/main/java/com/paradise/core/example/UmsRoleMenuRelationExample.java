@@ -547,6 +547,6 @@ public class UmsRoleMenuRelationExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsRoleMenuRelationExample example);
+        void example(com.paradise.core.example.UmsRoleMenuRelationExample example);
     }
 }

@@ -938,6 +938,6 @@ public class UmsMemberLoginLogExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsMemberLoginLogExample example);
+        void example(com.paradise.core.example.UmsMemberLoginLogExample example);
     }
 }

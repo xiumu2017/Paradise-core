@@ -120,7 +120,7 @@
         <!-- pms_product_category yxx_order yxx_product_comment yxx_product_comment_label-->
         <!-- pms_product yxx_order_status_record yxx_order_item yxx_region yxx_worker -->
         <!--        yxx_worker_order_count -->
-        <table tableName="t_account_pass">
+        <table tableName="ums_member">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

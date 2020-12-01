@@ -3,7 +3,6 @@ package com.paradise.core.mapper;
 import com.paradise.core.example.UmsRoleResourceRelationExample;
 import com.paradise.core.model.UmsRoleResourceRelation;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsRoleResourceRelationMapper {
