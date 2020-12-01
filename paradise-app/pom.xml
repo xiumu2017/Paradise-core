@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>paradise-app</name>
-    <description>mall-portal project for mall</description>
+    <description>paradise-app project for mall</description>
 
     <properties>
         <weixin-java-miniapp.version>3.9.0</weixin-java-miniapp.version>
@@ -37,26 +37,15 @@
             <artifactId>paradise-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--mongodb依赖配置-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-data-mongodb</artifactId>-->
-        <!--        </dependency>-->
-        <!--redis依赖配置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--集成消息队列-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.binarywang</groupId>-->
-        <!--            <artifactId>weixin-java-miniapp</artifactId>-->
-        <!--            <version>${weixin-java-miniapp.version}</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>${weixin-java-miniapp.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -102,7 +91,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                            <excludeGroupIds>com.macro.mall</excludeGroupIds>
+                            <excludeGroupIds>com.paradise.core</excludeGroupIds>
                         </configuration>
                     </execution>
                 </executions>

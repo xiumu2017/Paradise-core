@@ -12,6 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan({"com.paradise.core.mapper", "com.paradise.core.app.dao", "com.paradise.core.dao"})
+@MapperScan({"com.paradise.core.mapper", "com.paradise.core.dao"})
 public class MyBatisConfig {
 }

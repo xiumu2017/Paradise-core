@@ -1,10 +1,10 @@
 server:
-  port: 8993
+  port: 8995
   servlet:
-    context-path: /core-app
+    context-path: /er-mp
 spring:
   application:
-    name: core-app
+    name: er-mp
   profiles:
     active: dev #默认为开发环境
   servlet:
@@ -39,10 +39,8 @@ secure:
       - /**/druid/**
       - /**/actuator/**
       - /**/sso/**
-      - /**/home/**
-      - /**/product/**
-      - /**/brand/**
       - /**/oss/**
+      - /**/article/**
 
 # 自定义redis key
 redis:
@@ -58,15 +56,15 @@ redis:
 wx:
   miniapp:
     configs:
-      - appid: #微信小程序的appid
-        secret: #微信小程序的Secret
+      - appid: wxa7a9d5fc03f52d83 #微信小程序的appid
+        secret: f60c82ea5f1c981da15ef380f5f1b124 #微信小程序的Secret
         token: #微信小程序消息服务器配置的token
         aesKey: #微信小程序消息服务器配置的EncodingAESKey
         msgDataFormat: JSON
 
-minio:
-  endpoint: http://192.168.199.37:8008 #MinIO服务所在地址
-  bucketName: yxx-oss #存储桶名称
-  accessKey: L18S3MC4V2B6W8ZLLP9Y #访问的key
-  secretKey: Y+nkVyUgRG9RiiYOJARe7aBS0ighgfZnxbaaHGJN #访问的秘钥
-  openUrl: https://yxx.gaoshan.co:8003
+#minio:
+#  endpoint: http://192.168.199.37:8008 #MinIO服务所在地址
+#  bucketName: yxx-oss #存储桶名称
+#  accessKey: L18S3MC4V2B6W8ZLLP9Y #访问的key
+#  secretKey: Y+nkVyUgRG9RiiYOJARe7aBS0ighgfZnxbaaHGJN #访问的秘钥
+#  openUrl: https://yxx.gaoshan.co:8003

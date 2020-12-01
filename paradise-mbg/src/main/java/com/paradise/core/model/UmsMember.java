@@ -73,6 +73,9 @@ public class UmsMember implements Serializable {
     @ApiModelProperty(value="邀请人ID")
     private Long parentId;
 
+    @ApiModelProperty(value="")
+    private String email;
+
     private static final long serialVersionUID = 1L;
 
     public enum Column {
@@ -92,7 +95,8 @@ public class UmsMember implements Serializable {
         wxUnionId("wx_union_id", "wxUnionId", "VARCHAR", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
         invitationCode("invitation_code", "invitationCode", "VARCHAR", false),
-        parentId("parent_id", "parentId", "BIGINT", false);
+        parentId("parent_id", "parentId", "BIGINT", false),
+        email("email", "email", "VARCHAR", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

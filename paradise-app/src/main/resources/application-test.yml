@@ -25,4 +25,4 @@ logging:
     root: info
     com.macro.mall: info
   file:
-    path: /mnt/logs/app
+    path: /mnt/logs/mp
