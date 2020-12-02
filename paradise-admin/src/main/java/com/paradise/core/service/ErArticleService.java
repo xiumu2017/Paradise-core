@@ -3,6 +3,7 @@ package com.paradise.core.service;
 import com.github.pagehelper.PageHelper;
 import com.paradise.core.body.ErArticleBody;
 import com.paradise.core.dao.ErArticleDao;
+import com.paradise.core.dto.detail.ErArticleDetail;
 import com.paradise.core.example.ErArticleCategoryRelationExample;
 import com.paradise.core.mapper.ErArticleCategoryRelationMapper;
 import com.paradise.core.mapper.ErArticleMapper;
@@ -18,6 +19,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Paradise
@@ -52,7 +54,17 @@ public class ErArticleService {
     }
 
     public ErArticle selectByPrimaryKey(Long id) {
-        return this.erArticleMapper.selectByPrimaryKey(id);
+        List<Long> categoryIds = new ArrayList<>();
+        List<ErArticleCategoryRelation> relationList = relationMapper.selectByExample(
+                new ErArticleCategoryRelationExample().createCriteria().andArticleIdEqualTo(id).example());
+        if (!CollectionUtils.isEmpty(relationList)) {
+            categoryIds.addAll(relationList.stream().map(ErArticleCategoryRelation::getCategoryId).collect(Collectors.toList()));
+        }
+        ErArticle article = this.erArticleMapper.selectByPrimaryKey(id);
+        ErArticleDetail detail = new ErArticleDetail();
+        BeanUtils.copyProperties(article, detail);
+        detail.setCategoryIds(categoryIds);
+        return detail;
     }
 
     public int updateByPrimaryKey(ErArticleBody record) {

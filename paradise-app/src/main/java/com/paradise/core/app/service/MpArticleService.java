@@ -1,6 +1,7 @@
 package com.paradise.core.app.service;
 
 import com.github.pagehelper.PageHelper;
+import com.paradise.core.app.dao.MpArticleDao;
 import com.paradise.core.example.ErCategoryExample;
 import com.paradise.core.mapper.ErArticleMapper;
 import com.paradise.core.mapper.ErCategoryMapper;
@@ -14,7 +15,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +28,7 @@ public class MpArticleService {
     private final ErCategoryMapper categoryMapper;
     private final ErArticleMapper articleMapper;
     private final ErReadRecordMapper readRecordMapper;
+    private final MpArticleDao articleDao;
 
     public List<ErCategory> categoryList() {
         return categoryMapper.selectByExample(
@@ -40,8 +41,7 @@ public class MpArticleService {
 
     public List<ErArticle> articleList(ErArticleQuery query) {
         PageHelper.startPage(query.getPageNum(), query.getPageSize());
-
-        return new ArrayList<>();
+        return articleDao.pageQuery(query);
     }
 
     public ErArticle detail(Long id, UmsMember member) {
