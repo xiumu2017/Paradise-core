@@ -22,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -129,10 +130,14 @@ public class MpMemberService {
         UmsMember member = this.getByWxOpenId(userInfo.getOpenId());
         if (member != null) {
             member.setWxIcon(userInfo.getAvatarUrl());
-            member.setUsername(userInfo.getNickName());
+            member.setNickname(userInfo.getNickName());
             member.setGender(Integer.valueOf(userInfo.getGender()));
-            member.setWxUnionId(userInfo.getUnionId());
-            memberMapper.updateByPrimaryKeySelective(member, UmsMember.Column.wxIcon, UmsMember.Column.username,
+            if (StringUtils.hasText(userInfo.getUnionId())) {
+                member.setWxUnionId(userInfo.getUnionId());
+            } else {
+                member.setWxUnionId("");
+            }
+            memberMapper.updateByPrimaryKeySelective(member, UmsMember.Column.wxIcon, UmsMember.Column.nickname,
                     UmsMember.Column.gender, UmsMember.Column.wxUnionId);
         }
     }

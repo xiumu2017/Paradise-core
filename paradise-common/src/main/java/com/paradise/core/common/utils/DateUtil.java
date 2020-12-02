@@ -1,14 +1,31 @@
 package com.paradise.core.common.utils;
 
+import org.springframework.util.StringUtils;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * 日期工具类
- * Created by macro on 2019/1/29.
+ *
+ * @author Paradise
+ * @date 2019/1/29
  */
 public class DateUtil {
+
+    public static Date format(String date, String pattern) {
+        if (StringUtils.hasText(date)) {
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+            try {
+                return sdf.parse(date);
+            } catch (ParseException e) {
+                return null;
+            }
+        }
+        return null;
+    }
 
     /**
      * 从Date类型的时间中提取日期部分
