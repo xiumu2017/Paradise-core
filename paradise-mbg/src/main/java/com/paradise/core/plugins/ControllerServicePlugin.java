@@ -257,7 +257,7 @@ public class ControllerServicePlugin extends PluginAdapter {
     private void addInsertMethod4Controller(TopLevelClass controllerCompilationUnit, IntrospectedTable introspectedTable) {
         String domainObjectName = introspectedTable.getTableConfiguration().getDomainObjectName();
 
-        Set<FullyQualifiedJavaType> importedTypes = new TreeSet<FullyQualifiedJavaType>();
+        Set<FullyQualifiedJavaType> importedTypes = new TreeSet<>();
         Method method = new Method();
         method.setVisibility(JavaVisibility.PUBLIC);
         method.setReturnType(new FullyQualifiedJavaType("Result<Integer>"));

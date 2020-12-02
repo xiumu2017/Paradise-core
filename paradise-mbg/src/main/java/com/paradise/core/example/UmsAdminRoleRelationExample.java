@@ -547,6 +547,6 @@ public class UmsAdminRoleRelationExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsAdminRoleRelationExample example);
+        void example(com.paradise.core.example.UmsAdminRoleRelationExample example);
     }
 }

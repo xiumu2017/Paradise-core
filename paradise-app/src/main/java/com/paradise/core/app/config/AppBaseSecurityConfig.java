@@ -1,6 +1,6 @@
 package com.paradise.core.app.config;
 
-import com.paradise.core.app.service.impl.AppMemberService;
+import com.paradise.core.app.service.MpMemberService;
 import com.paradise.core.security.config.BaseSecurityConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,9 +20,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppBaseSecurityConfig extends BaseSecurityConfig {
 
-    private final AppMemberService memberService;
+    private final MpMemberService memberService;
 
-    public AppBaseSecurityConfig(@Lazy AppMemberService memberService) {
+    public AppBaseSecurityConfig(@Lazy MpMemberService memberService) {
         this.memberService = memberService;
     }
 
@@ -30,6 +30,6 @@ public class AppBaseSecurityConfig extends BaseSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
-        return memberService::loadUserByPhone;
+        return memberService::loadUserByOpenId;
     }
 }

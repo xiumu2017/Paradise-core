@@ -1118,6 +1118,6 @@ public class UmsMenuExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsMenuExample example);
+        void example(com.paradise.core.example.UmsMenuExample example);
     }
 }

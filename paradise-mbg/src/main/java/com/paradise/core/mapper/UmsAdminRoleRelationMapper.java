@@ -3,7 +3,6 @@ package com.paradise.core.mapper;
 import com.paradise.core.example.UmsAdminRoleRelationExample;
 import com.paradise.core.model.UmsAdminRoleRelation;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsAdminRoleRelationMapper {

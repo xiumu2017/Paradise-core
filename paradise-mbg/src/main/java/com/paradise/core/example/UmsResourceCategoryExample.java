@@ -648,6 +648,6 @@ public class UmsResourceCategoryExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsResourceCategoryExample example);
+        void example(com.paradise.core.example.UmsResourceCategoryExample example);
     }
 }

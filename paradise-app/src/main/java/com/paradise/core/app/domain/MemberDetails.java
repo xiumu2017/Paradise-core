@@ -14,10 +14,10 @@ import java.util.Collections;
  * @author Paradise
  * @date 2018/8/3
  */
-public class WorkerDetails implements UserDetails {
-    private UmsMember umsMember;
+public class MemberDetails implements UserDetails {
+    private final UmsMember umsMember;
 
-    public WorkerDetails(UmsMember umsMember) {
+    public MemberDetails(UmsMember umsMember) {
         this.umsMember = umsMember;
     }
 
@@ -35,7 +35,7 @@ public class WorkerDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return umsMember.getPhone();
+        return umsMember.getWxOpenId();
     }
 
     @Override

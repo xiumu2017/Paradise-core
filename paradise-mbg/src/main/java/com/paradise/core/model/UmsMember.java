@@ -25,16 +25,13 @@ public class UmsMember implements Serializable {
     @ApiModelProperty(value="")
     private Long id;
 
-    @ApiModelProperty(value="会员等级ID")
-    private Long memberLevelId;
-
     @ApiModelProperty(value="用户名")
     private String username;
 
     @ApiModelProperty(value="密码")
     private String password;
 
-    @ApiModelProperty(value="昵称")
+    @ApiModelProperty(value="微信昵称")
     private String nickname;
 
     @ApiModelProperty(value="手机号码")
@@ -43,11 +40,8 @@ public class UmsMember implements Serializable {
     @ApiModelProperty(value="帐号启用状态:0->禁用；1->启用")
     private Integer status;
 
-    @ApiModelProperty(value="注册时间")
-    private Date createTime;
-
-    @ApiModelProperty(value="头像")
-    private String icon;
+    @ApiModelProperty(value="微信头像")
+    private String wxIcon;
 
     @ApiModelProperty(value="性别：0->未知；1->男；2->女")
     private Integer gender;
@@ -55,14 +49,14 @@ public class UmsMember implements Serializable {
     @ApiModelProperty(value="生日")
     private Date birthday;
 
-    @ApiModelProperty(value="所做城市")
+    @ApiModelProperty(value="所在城市")
     private String city;
 
-    @ApiModelProperty(value="职业")
-    private String job;
+    @ApiModelProperty(value="所属系部")
+    private String department;
 
-    @ApiModelProperty(value="个性签名")
-    private String personalizedSignature;
+    @ApiModelProperty(value="所属班级")
+    private String clazz;
 
     @ApiModelProperty(value="微信openId")
     private String wxOpenId;
@@ -70,33 +64,39 @@ public class UmsMember implements Serializable {
     @ApiModelProperty(value="微信unionId")
     private String wxUnionId;
 
+    @ApiModelProperty(value="注册时间")
+    private Date createTime;
+
     @ApiModelProperty(value="邀请码")
     private String invitationCode;
 
     @ApiModelProperty(value="邀请人ID")
     private Long parentId;
 
+    @ApiModelProperty(value="")
+    private String email;
+
     private static final long serialVersionUID = 1L;
 
     public enum Column {
         id("id", "id", "BIGINT", false),
-        memberLevelId("member_level_id", "memberLevelId", "BIGINT", false),
         username("username", "username", "VARCHAR", false),
         password("password", "password", "VARCHAR", true),
         nickname("nickname", "nickname", "VARCHAR", false),
         phone("phone", "phone", "VARCHAR", false),
         status("status", "status", "INTEGER", true),
-        createTime("create_time", "createTime", "TIMESTAMP", false),
-        icon("icon", "icon", "VARCHAR", false),
+        wxIcon("wx_icon", "wxIcon", "VARCHAR", false),
         gender("gender", "gender", "INTEGER", false),
         birthday("birthday", "birthday", "DATE", false),
         city("city", "city", "VARCHAR", false),
-        job("job", "job", "VARCHAR", false),
-        personalizedSignature("personalized_signature", "personalizedSignature", "VARCHAR", false),
+        department("department", "department", "VARCHAR", false),
+        clazz("clazz", "clazz", "VARCHAR", false),
         wxOpenId("wx_open_id", "wxOpenId", "VARCHAR", false),
         wxUnionId("wx_union_id", "wxUnionId", "VARCHAR", false),
+        createTime("create_time", "createTime", "TIMESTAMP", false),
         invitationCode("invitation_code", "invitationCode", "VARCHAR", false),
-        parentId("parent_id", "parentId", "BIGINT", false);
+        parentId("parent_id", "parentId", "BIGINT", false),
+        email("email", "email", "VARCHAR", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

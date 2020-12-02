@@ -3,7 +3,6 @@ package com.paradise.core.mapper;
 import com.paradise.core.example.UmsAdminPermissionRelationExample;
 import com.paradise.core.model.UmsAdminPermissionRelation;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsAdminPermissionRelationMapper {

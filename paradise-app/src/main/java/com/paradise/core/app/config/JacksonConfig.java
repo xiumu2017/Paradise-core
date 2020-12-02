@@ -1,5 +1,6 @@
 package com.paradise.core.app.config;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -33,14 +35,15 @@ public class JacksonConfig {
         // Include.NON_DEFAULT 属性为默认值不序列化
         // Include.NON_EMPTY 属性为 空（""） 或者为 NULL 都不序列化，则返回的json是没有这个字段的。这样对移动端会更省流量
         // Include.NON_NULL 属性为NULL 不序列化,就是为null的字段不参加序列化
-//        objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
 
         // 字段保留，将null值转为""
         objectMapper.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
             @Override
-            public void serialize(Object o, JsonGenerator jsonGenerator,
-                                  SerializerProvider serializerProvider)
-                    throws IOException {
+            public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+                if (o instanceof List) {
+                    jsonGenerator.writeString("[]");
+                }
                 jsonGenerator.writeString("");
             }
         });

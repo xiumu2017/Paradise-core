@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paradise.core.app.dao.MpArticleDao">
+    <select id="pageQuery" resultMap="com.paradise.core.mapper.ErArticleMapper.BaseResultMap">
+        select distinct ea.id,
+        ea.title,
+        ea.thumbnail,
+        ea.read_count,
+        ea.enable,
+        ea.deleted,
+        ea.create_time,
+        ea.update_time,
+        ea.publish_time
+        from er_article ea
+        left join er_article_category_relation eacr on eacr.article_id = ea.id
+        left join er_category ec on eacr.category_id = ec.id
+        where ea.deleted <![CDATA[<> 1]]>
+        and ea.enable = 1
+        <if test="query.title != null and query.title != ''">
+            and ea.title like concat('%',#{query.title,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="query.categoryName != null and query.categoryName != ''">
+            and ec.name like concat('%',#{query.categoryName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="query.categoryId != null">
+            and ec.id = #{query.categoryId,jdbcType=BIGINT}
+        </if>
+        order by ea.create_time desc
+    </select>
+</mapper>

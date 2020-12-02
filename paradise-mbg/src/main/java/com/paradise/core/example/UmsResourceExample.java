@@ -848,6 +848,6 @@ public class UmsResourceExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsResourceExample example);
+        void example(com.paradise.core.example.UmsResourceExample example);
     }
 }

@@ -928,6 +928,6 @@ public class UmsRoleExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsRoleExample example);
+        void example(com.paradise.core.example.UmsRoleExample example);
     }
 }

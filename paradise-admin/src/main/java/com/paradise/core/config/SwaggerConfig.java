@@ -19,8 +19,8 @@ public class SwaggerConfig extends BaseSwaggerConfig {
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()
                 .apiBasePackage("com.paradise.core.controller")
-                .title("Paradise-Core 后台管理")
-                .description("Paradise-Core 相关接口文档")
+                .title("英语阅读小程序 - 后台管理")
+                .description("英语阅读小程序 - 相关接口文档")
                 .contactName("Paradise")
                 .version("1.0")
                 .enableSecurity(true)

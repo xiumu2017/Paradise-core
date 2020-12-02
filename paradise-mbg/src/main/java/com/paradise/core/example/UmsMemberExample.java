@@ -261,96 +261,6 @@ public class UmsMemberExample {
             return (Criteria) this;
         }
 
-        public Criteria andMemberLevelIdIsNull() {
-            addCriterion("member_level_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdIsNotNull() {
-            addCriterion("member_level_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdEqualTo(Long value) {
-            addCriterion("member_level_id =", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdNotEqualTo(Long value) {
-            addCriterion("member_level_id <>", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdNotEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdGreaterThan(Long value) {
-            addCriterion("member_level_id >", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdGreaterThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("member_level_id >=", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdGreaterThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdLessThan(Long value) {
-            addCriterion("member_level_id <", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdLessThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdLessThanOrEqualTo(Long value) {
-            addCriterion("member_level_id <=", value, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdLessThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("member_level_id <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdIn(List<Long> values) {
-            addCriterion("member_level_id in", values, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdNotIn(List<Long> values) {
-            addCriterion("member_level_id not in", values, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdBetween(Long value1, Long value2) {
-            addCriterion("member_level_id between", value1, value2, "memberLevelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemberLevelIdNotBetween(Long value1, Long value2) {
-            addCriterion("member_level_id not between", value1, value2, "memberLevelId");
-            return (Criteria) this;
-        }
-
         public Criteria andUsernameIsNull() {
             addCriterion("username is null");
             return (Criteria) this;
@@ -841,193 +751,103 @@ public class UmsMemberExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNull() {
-            addCriterion("create_time is null");
+        public Criteria andWxIconIsNull() {
+            addCriterion("wx_icon is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNotNull() {
-            addCriterion("create_time is not null");
+        public Criteria andWxIconIsNotNull() {
+            addCriterion("wx_icon is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterion("create_time =", value, "createTime");
+        public Criteria andWxIconEqualTo(String value) {
+            addCriterion("wx_icon =", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterion("create_time <>", value, "createTime");
+        public Criteria andWxIconNotEqualTo(String value) {
+            addCriterion("wx_icon <>", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconNotEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterion("create_time >", value, "createTime");
+        public Criteria andWxIconGreaterThan(String value) {
+            addCriterion("wx_icon >", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconGreaterThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_time >=", value, "createTime");
+        public Criteria andWxIconGreaterThanOrEqualTo(String value) {
+            addCriterion("wx_icon >=", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconGreaterThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(Date value) {
-            addCriterion("create_time <", value, "createTime");
+        public Criteria andWxIconLessThan(String value) {
+            addCriterion("wx_icon <", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconLessThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("create_time <=", value, "createTime");
+        public Criteria andWxIconLessThanOrEqualTo(String value) {
+            addCriterion("wx_icon <=", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("create_time <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andWxIconLessThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("wx_icon <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("create_time in", values, "createTime");
+        public Criteria andWxIconLike(String value) {
+            addCriterion("wx_icon like", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterion("create_time not in", values, "createTime");
+        public Criteria andWxIconNotLike(String value) {
+            addCriterion("wx_icon not like", value, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterion("create_time between", value1, value2, "createTime");
+        public Criteria andWxIconIn(List<String> values) {
+            addCriterion("wx_icon in", values, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("create_time not between", value1, value2, "createTime");
+        public Criteria andWxIconNotIn(List<String> values) {
+            addCriterion("wx_icon not in", values, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andIconIsNull() {
-            addCriterion("icon is null");
+        public Criteria andWxIconBetween(String value1, String value2) {
+            addCriterion("wx_icon between", value1, value2, "wxIcon");
             return (Criteria) this;
         }
 
-        public Criteria andIconIsNotNull() {
-            addCriterion("icon is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconEqualTo(String value) {
-            addCriterion("icon =", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconNotEqualTo(String value) {
-            addCriterion("icon <>", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconNotEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconGreaterThan(String value) {
-            addCriterion("icon >", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconGreaterThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconGreaterThanOrEqualTo(String value) {
-            addCriterion("icon >=", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconGreaterThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconLessThan(String value) {
-            addCriterion("icon <", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconLessThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconLessThanOrEqualTo(String value) {
-            addCriterion("icon <=", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconLessThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("icon <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andIconLike(String value) {
-            addCriterion("icon like", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconNotLike(String value) {
-            addCriterion("icon not like", value, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconIn(List<String> values) {
-            addCriterion("icon in", values, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconNotIn(List<String> values) {
-            addCriterion("icon not in", values, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconBetween(String value1, String value2) {
-            addCriterion("icon between", value1, value2, "icon");
-            return (Criteria) this;
-        }
-
-        public Criteria andIconNotBetween(String value1, String value2) {
-            addCriterion("icon not between", value1, value2, "icon");
+        public Criteria andWxIconNotBetween(String value1, String value2) {
+            addCriterion("wx_icon not between", value1, value2, "wxIcon");
             return (Criteria) this;
         }
 
@@ -1311,203 +1131,203 @@ public class UmsMemberExample {
             return (Criteria) this;
         }
 
-        public Criteria andJobIsNull() {
-            addCriterion("job is null");
+        public Criteria andDepartmentIsNull() {
+            addCriterion("department is null");
             return (Criteria) this;
         }
 
-        public Criteria andJobIsNotNull() {
-            addCriterion("job is not null");
+        public Criteria andDepartmentIsNotNull() {
+            addCriterion("department is not null");
             return (Criteria) this;
         }
 
-        public Criteria andJobEqualTo(String value) {
-            addCriterion("job =", value, "job");
+        public Criteria andDepartmentEqualTo(String value) {
+            addCriterion("department =", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobNotEqualTo(String value) {
-            addCriterion("job <>", value, "job");
+        public Criteria andDepartmentNotEqualTo(String value) {
+            addCriterion("department <>", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobNotEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentNotEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobGreaterThan(String value) {
-            addCriterion("job >", value, "job");
+        public Criteria andDepartmentGreaterThan(String value) {
+            addCriterion("department >", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobGreaterThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentGreaterThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobGreaterThanOrEqualTo(String value) {
-            addCriterion("job >=", value, "job");
+        public Criteria andDepartmentGreaterThanOrEqualTo(String value) {
+            addCriterion("department >=", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobGreaterThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentGreaterThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobLessThan(String value) {
-            addCriterion("job <", value, "job");
+        public Criteria andDepartmentLessThan(String value) {
+            addCriterion("department <", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobLessThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentLessThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobLessThanOrEqualTo(String value) {
-            addCriterion("job <=", value, "job");
+        public Criteria andDepartmentLessThanOrEqualTo(String value) {
+            addCriterion("department <=", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobLessThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("job <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andDepartmentLessThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("department <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andJobLike(String value) {
-            addCriterion("job like", value, "job");
+        public Criteria andDepartmentLike(String value) {
+            addCriterion("department like", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobNotLike(String value) {
-            addCriterion("job not like", value, "job");
+        public Criteria andDepartmentNotLike(String value) {
+            addCriterion("department not like", value, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobIn(List<String> values) {
-            addCriterion("job in", values, "job");
+        public Criteria andDepartmentIn(List<String> values) {
+            addCriterion("department in", values, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobNotIn(List<String> values) {
-            addCriterion("job not in", values, "job");
+        public Criteria andDepartmentNotIn(List<String> values) {
+            addCriterion("department not in", values, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobBetween(String value1, String value2) {
-            addCriterion("job between", value1, value2, "job");
+        public Criteria andDepartmentBetween(String value1, String value2) {
+            addCriterion("department between", value1, value2, "department");
             return (Criteria) this;
         }
 
-        public Criteria andJobNotBetween(String value1, String value2) {
-            addCriterion("job not between", value1, value2, "job");
+        public Criteria andDepartmentNotBetween(String value1, String value2) {
+            addCriterion("department not between", value1, value2, "department");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureIsNull() {
-            addCriterion("personalized_signature is null");
+        public Criteria andClazzIsNull() {
+            addCriterion("clazz is null");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureIsNotNull() {
-            addCriterion("personalized_signature is not null");
+        public Criteria andClazzIsNotNull() {
+            addCriterion("clazz is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureEqualTo(String value) {
-            addCriterion("personalized_signature =", value, "personalizedSignature");
+        public Criteria andClazzEqualTo(String value) {
+            addCriterion("clazz =", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureNotEqualTo(String value) {
-            addCriterion("personalized_signature <>", value, "personalizedSignature");
+        public Criteria andClazzNotEqualTo(String value) {
+            addCriterion("clazz <>", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureNotEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzNotEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureGreaterThan(String value) {
-            addCriterion("personalized_signature >", value, "personalizedSignature");
+        public Criteria andClazzGreaterThan(String value) {
+            addCriterion("clazz >", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureGreaterThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzGreaterThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureGreaterThanOrEqualTo(String value) {
-            addCriterion("personalized_signature >=", value, "personalizedSignature");
+        public Criteria andClazzGreaterThanOrEqualTo(String value) {
+            addCriterion("clazz >=", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureGreaterThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzGreaterThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureLessThan(String value) {
-            addCriterion("personalized_signature <", value, "personalizedSignature");
+        public Criteria andClazzLessThan(String value) {
+            addCriterion("clazz <", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureLessThanColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzLessThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureLessThanOrEqualTo(String value) {
-            addCriterion("personalized_signature <=", value, "personalizedSignature");
+        public Criteria andClazzLessThanOrEqualTo(String value) {
+            addCriterion("clazz <=", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureLessThanOrEqualToColumn(UmsMember.Column column) {
-            addCriterion(new StringBuilder("personalized_signature <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andClazzLessThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("clazz <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureLike(String value) {
-            addCriterion("personalized_signature like", value, "personalizedSignature");
+        public Criteria andClazzLike(String value) {
+            addCriterion("clazz like", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureNotLike(String value) {
-            addCriterion("personalized_signature not like", value, "personalizedSignature");
+        public Criteria andClazzNotLike(String value) {
+            addCriterion("clazz not like", value, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureIn(List<String> values) {
-            addCriterion("personalized_signature in", values, "personalizedSignature");
+        public Criteria andClazzIn(List<String> values) {
+            addCriterion("clazz in", values, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureNotIn(List<String> values) {
-            addCriterion("personalized_signature not in", values, "personalizedSignature");
+        public Criteria andClazzNotIn(List<String> values) {
+            addCriterion("clazz not in", values, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureBetween(String value1, String value2) {
-            addCriterion("personalized_signature between", value1, value2, "personalizedSignature");
+        public Criteria andClazzBetween(String value1, String value2) {
+            addCriterion("clazz between", value1, value2, "clazz");
             return (Criteria) this;
         }
 
-        public Criteria andPersonalizedSignatureNotBetween(String value1, String value2) {
-            addCriterion("personalized_signature not between", value1, value2, "personalizedSignature");
+        public Criteria andClazzNotBetween(String value1, String value2) {
+            addCriterion("clazz not between", value1, value2, "clazz");
             return (Criteria) this;
         }
 
@@ -1711,6 +1531,96 @@ public class UmsMemberExample {
             return (Criteria) this;
         }
 
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("create_time <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
         public Criteria andInvitationCodeIsNull() {
             addCriterion("invitation_code is null");
             return (Criteria) this;
@@ -1900,6 +1810,106 @@ public class UmsMemberExample {
             addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
+
+        public Criteria andEmailIsNull() {
+            addCriterion("email is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailIsNotNull() {
+            addCriterion("email is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailEqualTo(String value) {
+            addCriterion("email =", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailNotEqualTo(String value) {
+            addCriterion("email <>", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailNotEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailGreaterThan(String value) {
+            addCriterion("email >", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailGreaterThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailGreaterThanOrEqualTo(String value) {
+            addCriterion("email >=", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailGreaterThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailLessThan(String value) {
+            addCriterion("email <", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailLessThanColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailLessThanOrEqualTo(String value) {
+            addCriterion("email <=", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailLessThanOrEqualToColumn(UmsMember.Column column) {
+            addCriterion(new StringBuilder("email <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailLike(String value) {
+            addCriterion("email like", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailNotLike(String value) {
+            addCriterion("email not like", value, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailIn(List<String> values) {
+            addCriterion("email in", values, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailNotIn(List<String> values) {
+            addCriterion("email not in", values, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailBetween(String value1, String value2) {
+            addCriterion("email between", value1, value2, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmailNotBetween(String value1, String value2) {
+            addCriterion("email not between", value1, value2, "email");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -2035,6 +2045,6 @@ public class UmsMemberExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsMemberExample example);
+        void example(com.paradise.core.example.UmsMemberExample example);
     }
 }

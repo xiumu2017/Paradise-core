@@ -848,6 +848,6 @@ public class UmsAdminLoginLogExample {
     }
 
     public interface IExampleWhen {
-        void example(UmsAdminLoginLogExample example);
+        void example(com.paradise.core.example.UmsAdminLoginLogExample example);
     }
 }

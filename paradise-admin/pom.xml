@@ -76,7 +76,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                            <excludeGroupIds>com.macro.mall</excludeGroupIds>
+                            <excludeGroupIds>com.paradise.core</excludeGroupIds>
                         </configuration>
                     </execution>
                 </executions>
