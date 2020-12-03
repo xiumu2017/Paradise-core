@@ -24,12 +24,15 @@ public class MemberUpdateBody {
     private String email;
     @ApiModelProperty("生日yyyy-MM-dd")
     private String birthday;
+    @ApiModelProperty("手机号")
+    private String phone;
 
     public UmsMember toMember() {
         return UmsMember.builder()
                 .department(department)
                 .clazz(clazz)
                 .email(email)
+                .phone(phone)
                 .username(username)
                 .birthday(DateUtil.format(birthday, "yyyy-MM-dd"))
                 .build();
