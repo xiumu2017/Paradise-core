@@ -2,9 +2,11 @@ package com.paradise.core.service;
 
 import com.github.pagehelper.PageHelper;
 import com.paradise.core.body.ErArticleBody;
+import com.paradise.core.common.utils.DateUtil;
 import com.paradise.core.dao.ErArticleDao;
 import com.paradise.core.dto.detail.ErArticleDetail;
 import com.paradise.core.example.ErArticleCategoryRelationExample;
+import com.paradise.core.example.ErArticleExample;
 import com.paradise.core.mapper.ErArticleCategoryRelationMapper;
 import com.paradise.core.mapper.ErArticleMapper;
 import com.paradise.core.model.ErArticle;
@@ -95,5 +97,20 @@ public class ErArticleService {
 
     public int changeStatus(Long id, Integer enable) {
         return erArticleMapper.updateByPrimaryKeySelective(ErArticle.builder().id(id).enable(enable).build());
+    }
+
+    public Long dailyPublishCount() {
+        return erArticleMapper.countByExample(
+                new ErArticleExample().createCriteria()
+                        .andEnableEqualTo(1)
+                        .andPublishTimeBetween(DateUtil.getStartDateOfToday(), DateUtil.getEndDateOfToday())
+                        .example());
+    }
+
+    public List<ErArticle> listTop(int top) {
+        PageHelper.startPage(1, top);
+        return erArticleMapper.selectByExample(new ErArticleExample().createCriteria()
+                .andEnableEqualTo(1).andDeletedEqualTo(0)
+                .example().orderBy(ErArticle.Column.readCount.desc()));
     }
 }

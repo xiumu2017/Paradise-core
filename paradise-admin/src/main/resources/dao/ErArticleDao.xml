@@ -30,6 +30,9 @@
         <if test="query.endTime != null">
             and ea.publish_time <![CDATA[ <= #{query.endTime,jdbcType=BIGINT}]]>
         </if>
+        <if test="query.categoryId != null">
+            and ec.id = #{query.categoryId,jdbcType=BIGINT}
+        </if>
         order by ea.create_time desc
     </select>
 </mapper>
