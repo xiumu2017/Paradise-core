@@ -1,6 +1,7 @@
 package com.paradise.core.service;
 
 import com.github.pagehelper.PageHelper;
+import com.paradise.core.common.utils.DateUtil;
 import com.paradise.core.example.UmsMemberExample;
 import com.paradise.core.mapper.UmsMemberMapper;
 import com.paradise.core.model.UmsMember;
@@ -44,5 +45,10 @@ public class UmsMemberService {
                 .when(StringUtils.hasText(query.getNickName()), criteria -> criteria.andNicknameLike("%" + query.getNickName() + "%"))
                 .when(query.getEnable() != null, criteria -> criteria.andStatusEqualTo(query.getEnable()))
                 .example().orderBy(UmsMember.Column.createTime.desc()));
+    }
+
+    public Long dailyCount() {
+        return umsMemberMapper.countByExample(new UmsMemberExample().createCriteria()
+                .andCreateTimeBetween(DateUtil.getStartDateOfToday(), DateUtil.getEndDateOfToday()).example());
     }
 }

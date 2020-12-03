@@ -72,6 +72,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     @ExceptionHandler(value = RuntimeException.class)
     public Result<Object> handleRuntimeException(RuntimeException e) {
+        log.error(e.getLocalizedMessage(), e);
         return Result.failed(e.getLocalizedMessage());
     }
 
