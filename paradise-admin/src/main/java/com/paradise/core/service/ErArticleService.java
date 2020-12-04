@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.paradise.core.body.ErArticleBody;
 import com.paradise.core.common.utils.DateUtil;
 import com.paradise.core.dao.ErArticleDao;
+import com.paradise.core.dto.CheatData;
 import com.paradise.core.dto.detail.ErArticleDetail;
 import com.paradise.core.example.ErArticleCategoryRelationExample;
 import com.paradise.core.example.ErArticleExample;
@@ -99,11 +100,24 @@ public class ErArticleService {
         return erArticleMapper.updateByPrimaryKeySelective(ErArticle.builder().id(id).enable(enable).build());
     }
 
-    public Long dailyPublishCount() {
+    public List<CheatData> cheatDataList(int day) {
+        if (day < 1) {
+            return new ArrayList<>();
+        }
+        List<CheatData> cheatDataList = new ArrayList<>();
+        for (int i = 1; i <= day; i++) {
+            String date = DateUtil.getDateOffsetToday(day - i, "yyyy-MM-dd");
+            Long value = dailyPublishCount(day - i);
+            cheatDataList.add(new CheatData(date, value));
+        }
+        return cheatDataList;
+    }
+
+    public Long dailyPublishCount(int day) {
         return erArticleMapper.countByExample(
                 new ErArticleExample().createCriteria()
                         .andEnableEqualTo(1)
-                        .andPublishTimeBetween(DateUtil.getStartDateOfToday(), DateUtil.getEndDateOfToday())
+                        .andPublishTimeBetween(DateUtil.getStartDateOfToday(day), DateUtil.getEndDateOfToday(day))
                         .example());
     }
 

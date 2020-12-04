@@ -2,6 +2,7 @@ package com.paradise.core.service;
 
 import com.github.pagehelper.PageHelper;
 import com.paradise.core.common.utils.DateUtil;
+import com.paradise.core.dto.CheatData;
 import com.paradise.core.example.UmsMemberExample;
 import com.paradise.core.mapper.UmsMemberMapper;
 import com.paradise.core.model.UmsMember;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,7 +50,24 @@ public class UmsMemberService {
     }
 
     public Long dailyCount() {
+        return dailyCount(0);
+    }
+
+    public Long dailyCount(int day) {
         return umsMemberMapper.countByExample(new UmsMemberExample().createCriteria()
-                .andCreateTimeBetween(DateUtil.getStartDateOfToday(), DateUtil.getEndDateOfToday()).example());
+                .andCreateTimeBetween(DateUtil.getStartDateOfToday(day), DateUtil.getEndDateOfToday(day)).example());
+    }
+
+    public List<CheatData> cheatDataList(int day) {
+        if (day < 1) {
+            return new ArrayList<>();
+        }
+        List<CheatData> cheatDataList = new ArrayList<>();
+        for (int i = 1; i <= day; i++) {
+            String date = DateUtil.getDateOffsetToday(day - i, "yyyy-MM-dd");
+            Long value = dailyCount(day - i);
+            cheatDataList.add(new CheatData(date, value));
+        }
+        return cheatDataList;
     }
 }

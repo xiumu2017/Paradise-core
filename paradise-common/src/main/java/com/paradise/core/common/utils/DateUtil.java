@@ -40,10 +40,47 @@ public class DateUtil {
     }
 
     /**
+     * 获得基于当前时间的前n天的零点时间
+     * <p>如，当前时间是 2020年12月4日 14点02分，offset = 1 时返回 2020年12月3日 0点</p>
+     *
+     * @param offset 天数偏移量
+     * @return 前 offset 的零点时间
+     */
+    public static Date getStartDateOfToday(int offset) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - offset);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    public static String getDateOffsetToday(int offset, String pattern) {
+        return new SimpleDateFormat(pattern).format(getStartDateOfToday(offset));
+    }
+
+    /**
      * 从Date类型的时间中提取日期部分
      */
     public static Date getEndDateOfToday() {
         Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        return calendar.getTime();
+    }
+
+    /**
+     * 获得基于当前时间的前n天的零点时间
+     * <p>如，当前时间是 2020年12月4日 14点02分，offset = 1 时返回 2020年12月3日 23时59分59秒</p>
+     *
+     * @param offset 天数偏移量
+     * @return 前 offset 的零点时间
+     */
+    public static Date getEndDateOfToday(int offset) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - offset);
         calendar.set(Calendar.HOUR_OF_DAY, 23);
         calendar.set(Calendar.MINUTE, 59);
         calendar.set(Calendar.SECOND, 59);
